@@ -1,0 +1,33 @@
+import java.util.*;
+public class AnagramCode
+  {
+    public static void main(String args[])
+    {
+      Scanner s=new Scanner(System.in);
+      System.out.println("Enter the string 1 : ");
+      String str1=s.next();
+      System.out.println("Enter the string 2 :");
+      String str2=s.next();
+      String str3=str1.toLowerCase();
+      String str4=str2.toLowerCase();
+      if(str3.length()!=str4.length())
+      {
+        System.out.println(str1 +" and "+str2 +" is not an Anagram");
+      }
+      else
+      {  
+         char a[]=str3.toCharArray();
+         char b[]=str4.toCharArray();
+         Arrays.sort(a);
+         Arrays.sort(b);
+        if(Arrays.equals(a,b))
+        {
+          System.out.println(str1 +" and "+str2 +" is an Anagram");
+        }
+        else
+        {
+          System.out.println(str1 +" and "+str2 +" is not an Anagram");
+        }
+      }
+    }
+  }
