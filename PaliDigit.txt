@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class Palindromee
+  {
+    public static void main(String args[])
+    {
+      Scanner s=new Scanner(System.in);
+      System.out.println("Enter the number to be checked ");
+      int num=s.nextInt();
+      int rem=0,temp=num,rev=0;
+      while(num>0)
+        {
+          rem=rem%10;
+          rev=rev*10+rem;
+          num=num/10;
+        }
+      if(temp==rev)
+      {
+        System.out.println(+temp +" : is a palidrome number ");
+      }
+      else
+      {
+        System.out.println(+temp +" : is not apalidrome number ");
+      }
+    }
+  }
