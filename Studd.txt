@@ -1,0 +1,54 @@
+import java.util.*;
+class Pojo
+  {
+   private String name;
+   private int marks,id;
+	 public String getName() 
+    {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getMarks() {
+		return marks;
+	}
+	public void setMarks(int marks) {
+		this.marks = marks;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) 
+  {
+		this.id = id;
+	}
+  }
+public class Studdd
+  {
+    public static void main(String args[])
+    {
+      Scanner s=new Scanner(System.in);
+      ArrayList<Pojo> a=new ArrayList<Pojo>();
+      for(int i=0;i<2;i++)
+        {
+          Pojo obj=new Pojo();
+          System.out.println("Enter student name");
+          String name=s.next();
+          obj.setName(name);
+          System.out.println("Enter student marks");
+          int marks=s.nextInt();
+          obj.setMarks(marks);
+          System.out.println("Enter student id");
+          int id=s.nextInt();
+          obj.setId(id);
+          a.add(obj);
+        }
+      for(Pojo o:a)
+        {
+          System.out.println("STUDENT ID : "+o.getId());
+          System.out.println("STUDENT NAME : "+o.getName());
+          System.out.println("STUDENT MARKS : "+o.getMarks());
+        }
+    }
+  }
