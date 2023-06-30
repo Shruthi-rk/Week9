@@ -1,0 +1,119 @@
+/*6. Address Book: Create a class called AddressBook that stores a collection of contacts in a HashMap. The class should have methods to add, edit, and delete contacts, as well as to search for a contact by name.*/
+import java.util.*;
+class Contact
+  {
+    private String name,number;
+    private int age,adhaar;
+    Contact(String name,String number,int age,int adhaar)
+    {
+      this.name=name;
+      this.number=number;
+      this.age=age;
+      this.adhaar=adhaar;
+    }
+	public String getName()
+  {
+    		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getAdhaar() {
+		return adhaar;
+	}
+	public void setAdhaar(int adhaar) {
+		this.adhaar = adhaar;
+	}
+  }
+class Operation
+{
+  Scanner s=new Scanner(System.in);
+  HashMap<String,Contact> hm=new HashMap<String,Contact>();
+  public void add(String name,Contact c)
+  {
+    hm.put(name,c);
+    System.out.println(hm);
+    System.out.println("Contacts added successfully");
+  }
+  public void edit(String name)
+  {
+    System.out.println("Enter the new phone number");
+    String num=s.next();
+    if(hm.containsKey(name))
+    {
+    //  hm.replace(name,num);
+    }
+  }
+  public void del(String name,Contact c)
+  {
+     hm.remove(name,c);
+     System.out.println(hm);
+     System.out.println("Contacts deleted successfully");
+  }
+  public void search()
+  {
+    System.out.println("Enter the name to be searched");
+    String name=s.next();
+    if(hm.containsKey(name))
+    {
+    Set<Map.Entry<String,Contact>> a=hm.entrySet();
+    for(Map.Entry<String,Contact> o: a)
+      {
+        System.out.println(o.getKey()+"            "+o.getValue());
+      }
+  }
+}
+}
+public class AddressBook
+  {
+    public static void main(String args[])
+    {
+      Operation obj=new Operation();
+      int opt=0;
+      Scanner b=new Scanner(System.in);
+      do
+      {
+      System.out.println("Choose your option : ");
+      System.out.println("1. ADD CONTACTS : ");
+      System.out.println("2. EDIT CONTACTS : ");
+      System.out.println("3. DELETE CONTACTS : ");
+      System.out.println("4. SEARCH CONTACTS : ");
+      System.out.println("0. EXIT : ");
+      opt=b.nextInt();
+      System.out.println("Enter the name");
+      String n=b.next();
+      System.out.println("Enter the phone number");
+      String m=b.next();
+      System.out.println("Enter the age");
+      int ns=b.nextInt();
+      System.out.println("Enter the adhaar number");
+      int an=b.nextInt();
+      Contact c=new Contact(n,m,ns,an);
+      switch(opt)
+        {
+          case 1:obj.add(n,c);
+                 break;
+          case 2:obj.edit(n);
+                 break;
+          case 3:obj.del(n,c);
+                 break;
+          case 4:obj.search();
+                 break;
+          default:System.out.println("NO VALID OPTION");
+                  break;
+        }
+      }while(opt!=0);
+    }
+  }
